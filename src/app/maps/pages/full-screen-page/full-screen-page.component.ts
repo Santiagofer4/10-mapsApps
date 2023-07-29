@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { Map } from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import { Map } from 'mapbox-gl';
  
 
 
@@ -11,8 +11,8 @@ export class FullScreenPageComponent implements AfterViewInit {
 
   @ViewChild('map') public divMap?: ElementRef;
 
-  ngAfterViewInit(): void {
 
+  ngAfterViewInit(): void {
     if ( !this.divMap ) throw 'El elemento HTML no fue encontrado';
 
     const map = new Map({
