@@ -62,15 +62,14 @@ export class MarkersPageComponent implements AfterViewInit {
   addMarker( lngLat: LngLat, color: string) {
     if ( !this.map ) return
 
-    const marker = new Marker({
-      color: color,
-      draggable: true,
-    })
-    .setLngLat( lngLat )
-    .addTo( this.map )
+    const marker = new Marker({ color: color, draggable: true, })
+      .setLngLat( lngLat )
+      .addTo( this.map )
     
     this.markers.push({ marker: marker, color: color })
     this.saveToLocalStorage()
+
+    marker.on('dragend', () => { this.saveToLocalStorage() })
   }
   
 
